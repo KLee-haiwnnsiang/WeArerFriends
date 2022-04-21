@@ -23,6 +23,7 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
 instance.interceptors.response.use((res: AxiosResponse) => {
   return res
 }, (err) => {
+  console.log('request err', err)
   if (err.response.stutas) {
     switch (err.response.stutas) {
       case 401:

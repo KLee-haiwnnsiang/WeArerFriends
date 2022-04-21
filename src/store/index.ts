@@ -4,6 +4,14 @@ export const useIndexStore = defineStore('index', {
       num: 1
     }
   },
-  getters: {},
-  actions: {}
+  getters: {
+    number(): number {
+      return this.num++
+    }
+  },
+  actions: {
+    getNum() {
+      console.log(this.num)
+    }
+  }
 });

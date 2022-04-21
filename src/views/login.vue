@@ -2,11 +2,6 @@
   <div>
     qwe
     <span>wer</span>
-    <a
-        download="123.xlsx"
-        href="./index.xlsx"
-        target="_blank"
-    >xiazai</a>
   </div>
   <el-button @click="num++">
     {{ num }}
@@ -16,15 +11,17 @@
 
 <script setup lang="ts">
 import {useIndexStore} from "../store"
-import type {ComponentInternalInstance} from 'vue'
 
 const indexStore = useIndexStore()
 const {num} = storeToRefs(indexStore)
-const {proxy} = getCurrentInstance() as ComponentInternalInstance
-console.log(proxy)
+const $Api: any = inject('$Api')
+const res = $Api.login.login({account: '123', password: '123'})
+console.log(123, res)
 const acc = ref('')
 console.log('----------------', acc)
-
+const {getNum, number} = indexStore
+getNum()
+console.log(number, 'number')
 
 </script>
 
